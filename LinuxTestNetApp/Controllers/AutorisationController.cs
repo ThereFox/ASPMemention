@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using LinuxTestNetApp.Model.Abstractions.Types;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LinuxTestNetApp.Controllers
@@ -14,18 +15,28 @@ namespace LinuxTestNetApp.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("/Authorisation")]
+        public IActionResult ShowAuthoriseForm()
+        {
+
+        }
+
+
         [HttpPost]
         [Route("/Registration")]
         public IActionResult Registrate(string login, string password)
         {
             
         }
-
-        [HttpGet]
-        [Route("/Authorisation")]
-        public IActionResult ShowAuthoriseForm()
+        [HttpPost]
+        [Route("/Registration")]
+        public IActionResult Authorise(AuthorisationUser user)
         {
-            
+            if(user == null)
+            {
+                
+            }
         }
 
     }
